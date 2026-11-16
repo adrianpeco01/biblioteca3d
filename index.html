@@ -4377,7 +4377,7 @@ $('#cfy').onclick=async()=>{const i=selI;$('#cf').close();if(i<0)return;const a=
 
 /* ---------- bucle ---------- */
 let capI=-2,lastSel=0,bk=0,off=0,scrollTo=-1,tot=0;
-function layout(){tot=0;G.forEach(a=>{a.tw=a.th*1.1+.014;a.px=tot+a.tw/2;tot+=a.tw});G.forEach(a=>a.px-=tot/2);fit=tot<visW*.88}
+function layout(){tot=0;G.forEach(a=>{a.tw=a.th*1.1+.017;a.px=tot+a.tw/2;tot+=a.tw});G.forEach(a=>a.px-=tot/2);fit=tot<visW*.88}
 function frame(t){requestAnimationFrame(frame);const dt=Math.min(.05,last?(t-last)/1000:.016);last=t;
  shX+=(shT-shX)*(1-Math.exp(-dt*7));
  if(selI>=0){lastSel=selI;if(bk){const a=G[selI];if(a.L<.01&&a.O<.01){want=0;bk=0}}e=cl(e+(want?dt:-dt)/.55,0,1);if(e<=0&&!want){selI=-1;hint()}}
@@ -4387,7 +4387,7 @@ function frame(t){requestAnimationFrame(frame);const dt=Math.min(.05,last?(t-las
  const n=G.length,sl=selI>=0?selI:lastSel,xe=visW*.46;layout();
  const lim=fit?0:tot/2-visW*.44;shT=cl(shT,-lim,lim);if(scrollTo>=0&&G[scrollTo]){shT=cl(-G[scrollTo].px,-lim,lim);scrollTo=-1}off=fit?0:shX;
  /* posiciones de los lomos laterales cuando hay una caja en el centro (sin solaparse, con su grosor real) */
- const ts=G.map(a=>a.th*.85+.012),xsA=[],ksA=[],hidA=[];
+ const ts=G.map(a=>a.th*.85+.019),xsA=[],ksA=[],hidA=[];
  /* cada lado dispone de un ancho; si no caben todos a tamaño normal se reducen (sin solaparse) y, si aun así no caben, solo se muestran los más cercanos a la caja */
  const avail=visW*cl(.13+(cam.aspect-.5)*.18,.13,.22),kMin=.35;
  const pack=(ids,dir)=>{let tt=0;ids.forEach(i=>tt+=ts[i]);let k=Math.min(1,avail/Math.max(tt,.001)),m=ids.length;
